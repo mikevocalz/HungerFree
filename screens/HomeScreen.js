@@ -18,10 +18,30 @@ export class HomeScreen extends Component {
 		longitude: null,
 		markers: [
 			{
-				title: 'marker ',
+				id: 1,
+				title: 'the bao ',
+				description: '50 dumplings avaiable',
 				latlng: {
 					latitude: 40.729514,
 					longitude: -73.989112
+				}
+			},
+			{
+				id: 2,
+				title: 'the smith ',
+				description: '20 burgers',
+				latlng: {
+					latitude: 40.731204,
+					longitude: -73.988466
+				}
+			},
+			{
+				id: 3,
+				title: 'startbucks ',
+				description: '13 pastries',
+				latlng: {
+					latitude: 40.730253,
+					longitude: -73.991556
 				}
 			}
 		]
@@ -43,8 +63,6 @@ export class HomeScreen extends Component {
 				errorMessage: 'PREMISSION NOT GRANTED'
 			});
 		}
-
-		console.log('location', location);
 	};
 
 	render() {
@@ -53,13 +71,12 @@ export class HomeScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<ScrollView style={{ flex: 1 }}>
-					<Text>Home Component </Text>
-					<Text>{JSON.stringify(this.state.location)}</Text>
+					{/* <Text>{JSON.stringify(this.state.location)}</Text> */}
 					<MapView
 						showsUserLocation={true}
 						region={{
-							latitudeDelta: 0.0922,
-							longitudeDelta: 0.0421,
+							latitudeDelta: 0.0322,
+							longitudeDelta: 0.0021,
 							latitude: 40.731031,
 							longitude: -73.991324
 							// latitude: location.coords.latitude,
@@ -68,7 +85,14 @@ export class HomeScreen extends Component {
 						style={styles.mapStyle}
 						provider={PROVIDER_GOOGLE}
 					>
-						{this.state.markers.map((marker) => <Marker coordinate={marker.latlng} title={marker.title} />)}
+						{this.state.markers.map((marker) => (
+							<Marker
+								key={marker.id}
+								coordinate={marker.latlng}
+								title={marker.title}
+								description={marker.description}
+							/>
+						))}
 					</MapView>
 				</ScrollView>
 			</View>
@@ -83,7 +107,7 @@ const styles = StyleSheet.create({
 	},
 	mapStyle: {
 		width: Dimensions.get('window').width,
-		height: 400
+		height: Dimensions.get('window').height
 	}
 });
 
