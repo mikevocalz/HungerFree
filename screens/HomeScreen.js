@@ -94,7 +94,7 @@ export class HomeScreen extends Component {
 								title={marker.title}
 								description={marker.description}
 							>
-								<Callout onPress={() => this.props.navigation.navigate('PlaceDetails')}>
+								<Callout onPress={() => this.props.navigation.push('PlaceDetails')}>
 									<View>
 										<Text style={{ fontWeight: 'bold' }}>{marker.title}</Text>
 										<Text>{marker.description}</Text>
