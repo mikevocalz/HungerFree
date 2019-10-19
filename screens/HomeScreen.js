@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { Marker } from 'react-native-maps';
 import { Location } from 'expo';
 import Permissions from 'expo-permissions';
 
@@ -11,10 +12,19 @@ export class HomeScreen extends Component {
 	};
 
 	state = {
-		location: '',
+		location: {},
 		errorMessage: '',
 		latitude: null,
-		longitude: null
+		longitude: null,
+		markers: [
+			{
+				title: 'marker ',
+				latlng: {
+					latitude: 40.729514,
+					longitude: -73.989112
+				}
+			}
+		]
 	};
 
 	componentWillMount() {
@@ -26,7 +36,6 @@ export class HomeScreen extends Component {
 			await Permissions.askAsync(Permissions.LOCATION);
 			const location = await Location.getCurrentPostionAsync();
 			this.setState({ location });
-			console.log('hi');
 		} catch (e) {
 			console.log('hihi');
 			console.log(e);
@@ -34,9 +43,13 @@ export class HomeScreen extends Component {
 				errorMessage: 'PREMISSION NOT GRANTED'
 			});
 		}
+
+		console.log('location', location);
 	};
 
 	render() {
+		const { location } = this.state;
+		console.log('hi loca its me', location);
 		return (
 			<View style={styles.container}>
 				<ScrollView style={{ flex: 1 }}>
@@ -49,10 +62,14 @@ export class HomeScreen extends Component {
 							longitudeDelta: 0.0421,
 							latitude: 40.731031,
 							longitude: -73.991324
+							// latitude: location.coords.latitude,
+							// longitude: location.coords.latitude
 						}}
 						style={styles.mapStyle}
 						provider={PROVIDER_GOOGLE}
-					/>
+					>
+						{this.state.markers.map((marker) => <Marker coordinate={marker.latlng} title={marker.title} />)}
+					</MapView>
 				</ScrollView>
 			</View>
 		);
