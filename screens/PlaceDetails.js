@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, Image, StyleSheet, Dimensions } from 'react-native';
-import Img from 'react-image';
 
 export class PlaceDetails extends Component {
 	render() {
@@ -10,7 +9,10 @@ export class PlaceDetails extends Component {
 					style={styles.imageStyle}
 					source={{ uri: 'https://globalassets.starbucks.com/assets/2f22cbcc693843989165dd459c4ca1ee.jpg' }}
 				/>
-				<Text> PlaceDetails </Text>
+				<Text>starbucks </Text>
+				<Text>location: 13-25 Astor Pl, New York, NY 10003</Text>
+				<Text>avaiablity</Text>
+				<Text>15</Text>
 			</View>
 		);
 	}
