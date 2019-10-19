@@ -46,6 +46,24 @@ export class HomeScreen extends Component {
 					latitude: 40.730253,
 					longitude: -73.991556
 				}
+			},
+			{
+				id: 4,
+				title: 'Tim Ho Wan ',
+				description: '50 dim sum',
+				latlng: {
+					latitude: 40.731554,
+					longitude: -73.9901
+				}
+			},
+			{
+				id: 5,
+				title: 'IHOP ',
+				description: '100 bacons',
+				latlng: {
+					latitude: 40.733164,
+					longitude: -73.985547
+				}
 			}
 		]
 	};
@@ -60,8 +78,6 @@ export class HomeScreen extends Component {
 			const location = await Location.getCurrentPostionAsync();
 			this.setState({ location });
 		} catch (e) {
-			// console.log('hihi');
-			// console.log(e);
 			this.setState({
 				errorMessage: 'PREMISSION NOT GRANTED'
 			});
@@ -81,8 +97,6 @@ export class HomeScreen extends Component {
 							longitudeDelta: 0.0021,
 							latitude: 40.731031,
 							longitude: -73.991324
-							// latitude: location.coords.latitude,
-							// longitude: location.coords.latitude
 						}}
 						style={styles.mapStyle}
 						provider={PROVIDER_GOOGLE}
