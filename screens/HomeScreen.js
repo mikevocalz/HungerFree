@@ -57,12 +57,16 @@ export class HomeScreen extends Component {
 			const location = await Location.getCurrentPostionAsync();
 			this.setState({ location });
 		} catch (e) {
-			console.log('hihi');
-			console.log(e);
+			// console.log('hihi');
+			// console.log(e);
 			this.setState({
 				errorMessage: 'PREMISSION NOT GRANTED'
 			});
 		}
+	};
+
+	handlePress = () => {
+		alert('You tapped the button!');
 	};
 
 	render() {
@@ -91,6 +95,7 @@ export class HomeScreen extends Component {
 								coordinate={marker.latlng}
 								title={marker.title}
 								description={marker.description}
+								onPress={this.handlePress}
 							/>
 						))}
 					</MapView>
