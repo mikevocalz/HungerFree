@@ -9,6 +9,7 @@ import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
 import PantryScreen from "../screens/PantryScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import PlaceDetails from "../screens/PlaceDetails";
 
 import CustomHeader from "../components/CustomHeader";
 
@@ -23,7 +24,13 @@ let headerDefaultConfig = {
 };
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen
+  Home: HomeScreen,
+  PlaceDetails: {
+    screen: PlaceDetails,
+    navigationOptions: {
+      header: null
+    }
+  }
 });
 
 HomeStack.navigationOptions = {
