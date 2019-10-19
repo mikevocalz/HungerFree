@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Dimensions, ScrollView } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { Location } from 'expo';
 import Permissions from 'expo-permissions';
+import { NavigationEvents } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 export class HomeScreen extends Component {
 	static navigationOptions = {
@@ -65,13 +68,8 @@ export class HomeScreen extends Component {
 		}
 	};
 
-	handlePress = () => {
-		alert('You tapped the button!');
-	};
-
 	render() {
 		const { location } = this.state;
-		console.log('hi loca its me', location);
 		return (
 			<View style={styles.container}>
 				<ScrollView style={{ flex: 1 }}>
@@ -95,8 +93,14 @@ export class HomeScreen extends Component {
 								coordinate={marker.latlng}
 								title={marker.title}
 								description={marker.description}
-								onPress={this.handlePress}
-							/>
+							>
+								<Callout onPress={() => this.props.navigation.navigate('PlaceDetails')}>
+									<View>
+										<Text style={{ fontWeight: 'bold' }}>{marker.title}</Text>
+										<Text>{marker.description}</Text>
+									</View>
+								</Callout>
+							</Marker>
 						))}
 					</MapView>
 				</ScrollView>
