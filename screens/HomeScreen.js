@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
+import { width, height } from "../constants/Layout";
 
 export class HomeScreen extends Component {
   static navigationOptions = {
-    title: "Home"
-    //header: null
+    header: null
   };
 
   render() {
@@ -20,6 +20,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center"
+  },
+  gradient: {
+    flex: 1,
+    width: width,
+    height: height
   }
 });
 

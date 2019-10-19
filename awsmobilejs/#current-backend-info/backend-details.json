@@ -1,0 +1,165 @@
+{
+	"name": "WhatSuppsAppTest",
+	"projectId": "9deee8a7-6c6d-4c34-8ac5-465691d1999a",
+	"region": "us-east-1",
+	"state": "NORMAL",
+	"createdDate": "2018-07-07T20:34:31.376Z",
+	"lastUpdatedDate": "2018-07-07T20:36:14.381Z",
+	"consoleUrl": "https://console.aws.amazon.com/mobilehub/home#/9deee8a7-6c6d-4c34-8ac5-465691d1999a/build",
+	"resources": [
+		{
+			"type": "AWS::Pinpoint::AnalyticsApplication",
+			"name": "whatsuppsapptest_MobileHub",
+			"arn": "c4a249aa24194cc3b73eef1acdd0a67d",
+			"feature": "analytics",
+			"attributes": {
+				"lastUpdateRequestID": "04885235-365b-4a3c-9141-07ebb1f29bba"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "whatsuppsapptest_mobileanalytics_MOBILEHUB_1140967522",
+			"arn": null,
+			"feature": "analytics",
+			"attributes": {
+				"authType": "authenticated",
+				"lastUpdateRequestID": "56bf6bae-29e2-486f-9633-c4b9c52e6dcb",
+				"role": "whatsuppsapptest_auth_MOBILEHUB_1140967522"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "whatsuppsapptest_mobileanalytics_MOBILEHUB_1140967522",
+			"arn": null,
+			"feature": "analytics",
+			"attributes": {
+				"authType": "unauthenticated",
+				"lastUpdateRequestID": "56bf6bae-29e2-486f-9633-c4b9c52e6dcb",
+				"role": "whatsuppsapptest_unauth_MOBILEHUB_1140967522"
+			}
+		},
+		{
+			"type": "AWS::Cognito::IdentityPool",
+			"name": "whatsuppsapptest_MOBILEHUB_1140967522",
+			"arn": "us-east-1:a1b7040a-5129-4c01-ba94-7106372147ef",
+			"feature": "user-signin",
+			"attributes": {
+				"lastUpdateRequestID": "56bf6bae-29e2-486f-9633-c4b9c52e6dcb",
+				"poolid": "us-east-1:a1b7040a-5129-4c01-ba94-7106372147ef",
+				"roleARNs": "arn:aws:iam::556188336349:role/whatsuppsapptest_auth_MOBILEHUB_1140967522,arn:aws:iam::556188336349:role/whatsuppsapptest_unauth_MOBILEHUB_1140967522"
+			}
+		},
+		{
+			"type": "AWS::IAM::Role",
+			"name": "whatsuppsapptest_smsverification_MOBILEHUB_1140967522",
+			"arn": "arn:aws:iam::556188336349:role/service-role/whatsuppsapptest_smsverification_MOBILEHUB_1140967522",
+			"feature": "user-signin",
+			"attributes": {
+				"lastUpdateRequestID": "56bf6bae-29e2-486f-9633-c4b9c52e6dcb",
+				"user-pools-role-key": "user-pools-execution-role"
+			}
+		},
+		{
+			"type": "AWS::Cognito::UserPool",
+			"name": "whatsuppsapptest_userpool_MOBILEHUB_1140967522",
+			"arn": "us-east-1_6FRTUlZgW",
+			"feature": "user-signin",
+			"attributes": {
+				"alias-attributes": "[\"email\",\"phone_number\"]",
+				"lastUpdateRequestID": "56bf6bae-29e2-486f-9633-c4b9c52e6dcb",
+				"mfa-configuration": "ON",
+				"password-policy": "{\"minimumLength\":8,\"requireUppercase\":true,\"requireLowercase\":true,\"requireNumbers\":true,\"requireSymbols\":true}",
+				"region": "us-east-1",
+				"user-pools-client-id": "7325i75qsl3f0t5lm6fain2f9",
+				"user-pools-client-secret": "1o06qd42mhe28djd971oad6q23ib16nhia8t7onhs6mdn102cveb",
+				"user-pools-id": "us-east-1_6FRTUlZgW",
+				"user-pools-web-client-id": "4i5oh45gvl6dq0clq8jutb5t3s"
+			}
+		},
+		{
+			"type": "AWS::IAM::Role",
+			"name": "whatsuppsapptest_auth_MOBILEHUB_1140967522",
+			"arn": "arn:aws:iam::556188336349:role/whatsuppsapptest_auth_MOBILEHUB_1140967522",
+			"feature": "user-signin",
+			"attributes": {
+				"authType": "authenticated",
+				"lastUpdateRequestID": "56bf6bae-29e2-486f-9633-c4b9c52e6dcb"
+			}
+		},
+		{
+			"type": "AWS::IAM::Role",
+			"name": "whatsuppsapptest_unauth_MOBILEHUB_1140967522",
+			"arn": "arn:aws:iam::556188336349:role/whatsuppsapptest_unauth_MOBILEHUB_1140967522",
+			"feature": "user-signin",
+			"attributes": {
+				"authType": "unauthenticated",
+				"lastUpdateRequestID": "04885235-365b-4a3c-9141-07ebb1f29bba"
+			}
+		},
+		{
+			"type": "AWS::S3::Bucket",
+			"name": "whatsuppsapptest-hosting-mobilehub-1140967522",
+			"arn": null,
+			"feature": "hosting",
+			"attributes": {
+				"lastUpdateRequestID": "04885235-365b-4a3c-9141-07ebb1f29bba",
+				"region": "us-east-1",
+				"s3-bucket-console-url": "https://s3.console.aws.amazon.com/s3/buckets/whatsuppsapptest-hosting-mobilehub-1140967522",
+				"s3-bucket-website-url": "https://s3.amazonaws.com/whatsuppsapptest-hosting-mobilehub-1140967522"
+			}
+		},
+		{
+			"type": "AWS::CloudFront::Distribution",
+			"name": "d382wmm24zs2vz.cloudfront.net",
+			"arn": null,
+			"feature": "hosting",
+			"attributes": {
+				"id": "E1PPHZBT05Z86T",
+				"lastUpdateRequestID": "04885235-365b-4a3c-9141-07ebb1f29bba"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "whatsuppsapptest_hosting_MOBILEHUB_1140967522",
+			"arn": null,
+			"feature": "hosting",
+			"attributes": {
+				"authType": "authenticated",
+				"lastUpdateRequestID": "56bf6bae-29e2-486f-9633-c4b9c52e6dcb",
+				"role": "whatsuppsapptest_auth_MOBILEHUB_1140967522"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "whatsuppsapptest_hosting_MOBILEHUB_1140967522",
+			"arn": null,
+			"feature": "hosting",
+			"attributes": {
+				"authType": "unauthenticated",
+				"lastUpdateRequestID": "56bf6bae-29e2-486f-9633-c4b9c52e6dcb",
+				"role": "whatsuppsapptest_unauth_MOBILEHUB_1140967522"
+			}
+		},
+		{
+			"type": "AWS::S3::Bucket",
+			"name": "whatsuppsapptest-deployments-mobilehub-1140967522",
+			"arn": null,
+			"feature": "common",
+			"attributes": {
+				"region": "us-east-1",
+				"s3-bucket-console-url": "https://s3.console.aws.amazon.com/s3/buckets/whatsuppsapptest-deployments-mobilehub-1140967522"
+			}
+		},
+		{
+			"type": "AWS::CloudFormation::Stack",
+			"name": "Development",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"primary": "true",
+				"region": "us-east-1",
+				"stateSummary": "NOT_YET_DEPLOYED"
+			}
+		}
+	]
+}

@@ -10,8 +10,17 @@ import HomeScreen from "../screens/HomeScreen";
 import PantryScreen from "../screens/PantryScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 
+import CustomHeader from "../components/CustomHeader";
+
 import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
+
+let headerDefaultConfig = {
+  header: props => <CustomHeader {...props} />,
+  headerStyle: {
+    backgroundColor: "transparent"
+  }
+};
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen
@@ -20,7 +29,13 @@ const HomeStack = createStackNavigator({
 HomeStack.navigationOptions = {
   tabBarLabel: "Home",
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={"ios-home"} />
+    <FontAwesome5
+      style={{ marginBottom: -3 }}
+      size={26}
+      focused={focused}
+      name={"home"}
+      color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+    />
   )
 };
 
@@ -58,10 +73,42 @@ ProfileStack.navigationOptions = {
   )
 };
 
-const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  PantryStack,
-  ProfileStack
-});
+const tabNav = createBottomTabNavigator(
+  {
+    HomeStack,
+    PantryStack,
+    ProfileStack
+  },
+  {
+    initialRouteName: "HomeStack",
+    navigationOptions: {
+      ...headerDefaultConfig
+    },
+    tabBarPosition: "bottom",
+    initialRouteName: "HomeStack",
+    tabBarOptions: {
+      activeTintColor: "white",
+      inactiveTintColor: "#ccc",
+      labelStyle: {
+        fontWeight: "bold"
+      },
+
+      style: {
+        backgroundColor: "#Ff9292",
+        borderTopColor: "transparent"
+      }
+    }
+  }
+);
+
+const tabNavigator = createStackNavigator(
+  {
+    tabNav
+  },
+  {
+    headerLayoutPreset: "center",
+    headerMode: "float"
+  }
+);
 
 export default tabNavigator;

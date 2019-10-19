@@ -1,0 +1,19 @@
+{
+	"ProjectName": "what-supps-app",
+	"ProjectPath": "/Users/mac/what-supps-app",
+	"InitializationTime": "2018-07-07-16-34-58",
+	"LastConfigurationTime": "2018-07-07-16-34-17",
+	"LastNPMInstallTime": "",
+	"FrontendLastBuildTime": "",
+	"LastPublishTime": "",
+	"BackendLastSyncTime": "2018-07-07-16-44-10",
+	"BackendLastBuildTime": "2018-07-07-16-35-59",
+	"BackendLastPushTime": "2018-07-07-16-36-14",
+	"BackendProjectID": "9deee8a7-6c6d-4c34-8ac5-465691d1999a",
+	"BackendProjectName": "WhatSuppsAppTest",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/9deee8a7-6c6d-4c34-8ac5-465691d1999a/build",
+	"BackendProjectCreationTime": "2018-07-07T20:34:31.376Z",
+	"BackendProjectLastUpdatedTime": "2018-07-07T20:36:14.381Z",
+	"Framework": "react-native",
+	"BackendLastSyncToDevTime": "2018-07-07-16-44-19"
+}
