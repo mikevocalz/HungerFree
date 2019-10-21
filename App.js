@@ -5,7 +5,27 @@ import React, { useState } from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
+import Amplify, { Auth } from "aws-amplify";
+import AWSAppSyncClient, { AUTH_TYPE } from "aws-appsync";
+import { Rehydrated } from "aws-appsync-react";
+import { ApolloProvider } from "react-apollo";
+import awsConfig from "./aws-exports";
+
+import appSyncConfig from "./AppSync";
 import AppNavigator from "./navigation/AppNavigator";
+
+// Amplify Configuration
+Amplify.configure(awsConfig);
+
+const appSyncClient = new AWSAppSyncClient({
+  url: appSyncConfig.graphqlEndpoint,
+  region: appSyncConfig.region,
+  auth: {
+    type: AUTH_TYPE.AMAZON_COGNITO_USER_POOLS,
+    jwtToken: async () =>
+      (await Auth.currentSession()).getIdToken().getJwtToken()
+  }
+});
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -32,6 +52,10 @@ async function loadResourcesAsync() {
   await Promise.all([
     Asset.loadAsync([
       //Load Images Here
+      require("./assets/images/Asset1.png"),
+      require("./assets/images/Asset2.png"),
+      require("./assets/images/Asset3.png"),
+      require("./assets/images/H3logo.png")
     ]),
     Font.loadAsync({
       // This is the font that we are using for our tab bar

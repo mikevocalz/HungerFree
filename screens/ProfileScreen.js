@@ -3,8 +3,7 @@ import { Text, View, StyleSheet } from "react-native";
 
 export class ProfileScreen extends Component {
   static navigationOptions = {
-    title: "Profile"
-    //header: null
+    header: null
   };
 
   render() {
